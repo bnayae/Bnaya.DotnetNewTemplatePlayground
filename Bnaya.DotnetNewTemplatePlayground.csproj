@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<PackageType>Template</PackageType>
+		<PackageVersion>1.0.0</PackageVersion>
+		<PackageId>bnaya-playground-cs</PackageId>
+		<Title>Bnaya C# Template Playground</Title>
+		<Authors>Bnaya Eshet</Authors>
+		<Copyright>Bnaya Eshet ©</Copyright>
+		<PackageCopyright>Bnaya Eshet ©</PackageCopyright>
+		<PackageTags>dotnet;c#;template;bnaya</PackageTags>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageProjectUrl>https://medium.com/@bnayae</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/bnayae/Bnaya.DotnetNewTemplatePlayground</RepositoryUrl>
+		<PackageLicenseExpression></PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+
+		<TargetFramework>netstandard2.0</TargetFramework>
+
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageOutputPath>.</PackageOutputPath>
+		<NoWarn>$(NoWarn);NU5128</NoWarn>
+		<PackageIcon>icon.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+		<Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**" />
+		<Compile Remove="**\*;Bnaya.DotnetNewTemplatePlayground.sln" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Content Update="templates\{{TEMPLATE1}}\.editorconfig">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties />
+		</VisualStudio>
+	</ProjectExtensions>
+</Project>

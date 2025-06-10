@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Bnaya Eshet",
+  "classifications": [ "Web", "WebAPI", "Library", "Bnaya Eshet" ],
+  "name": "Bnaya c# Playground",
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "Bnaya playground template for creation of a new solution",
+  "groupIdentity": "bnaya-cs-playground.Bnaya.Template",
+  "precedence": "9800",
+  "identity": "bnaya-cs-playground.Bnaya.Template.CSharp",
+  "shortName": "bnaya-cs-playground",
+  "defaultName": "AppName",
+  "supportsDocker": true,
+  "tags": {
+    "language": "C#",
+    "type": "solution",
+    "editorTreatAs": "solution",
+    "keyword": "bnaya-cs-playground"
+  },
+  "sourceName": "TEMPLATE1",
+  "preferNameDirectory": false,
+  "primaryOutputs": [
+    {
+      "path": "TEMPLATE1.WebApi"
+    }
+  ],
+  "guids": [
+    "EFA1AEB5-F1A5-4235-ADFA-59A77144D1C7",
+    "3A13C784-5D1E-4A27-AE48-B3E80B43FA28"
+  ],
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/.vs/**"
+          ]
+        },
+        {
+          "source": "./",
+          "target": "./",
+          "exclude": [ ".template.config/**" ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "LangVersion": {
+      "type": "parameter",
+      "description": "The C# Language version.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "13.0",
+          "description": "Compatible with net9"
+        },
+        {
+          "choice": "12.0",
+          "description": "Compatible with net8"
+        },
+        {
+          "choice": "11.0",
+          "description": "Compatible with net7"
+        },
+        {
+          "choice": "10.0",
+          "description": "Compatible with net6"
+        },
+        {
+          "choice": "9.0",
+          "description": "Compatible with net5"
+        },
+        {
+          "choice": "8.0",
+          "description": "Compatible with netcoreapp3.1 and netstandard2.1"
+        },
+        {
+          "choice": "preview",
+          "description": "latest pre-release available"
+        }
+      ],
+      "replaces": "{LangVersion}",
+      "defaultValue": "12.0"
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net8.0",
+          "description": "Target net8.0"
+        },
+        {
+          "choice": "net9.0",
+          "description": "Target net9.0"
+        }
+      ],
+      "replaces": "{TargetFramework}",
+      "defaultValue": "net8.0"
+    },
+    "kestrelHttpsPortGenerated": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 7000,
+        "high": 7300
+      }
+    },
+    "kestrelHttpPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "kestrelHttpPort",
+        "fallbackVariableName": "kestrelHttpPortGenerated"
+      },
+      "replaces": "5000"
+    },
+    "kestrelHttpsPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "kestrelHttpsPort",
+        "fallbackVariableName": "kestrelHttpsPortGenerated"
+      },
+      "replaces": "7000"
+    }
+  },
+  "postActions": [
+    {
+      "id": "restore",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}

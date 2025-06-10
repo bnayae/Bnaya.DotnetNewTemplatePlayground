@@ -1,0 +1,61 @@
+<Project>
+	<PropertyGroup>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TemplateSourceName>bnaya-cs.Bnaya.Template.CSharp</TemplateSourceName>
+		<TemplateSourceVersion>1.0</TemplateSourceVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>{TargetFramework}</TargetFramework>
+		<LangVersion>{LangVersion}</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<NoWarn>NU1605</NoWarn>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<Company></Company>
+		<Authors></Authors>
+		<Copyright>Copyright Bnaya</Copyright>
+		<RepositoryUrl></RepositoryUrl>
+		<PackageProjectUrl></PackageProjectUrl>
+		<PackageLicenseExpression></PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags></PackageTags>
+		<Description></Description>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageTags></PackageTags>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSource>True</IncludeSource>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Using Include="System.Text.Json" />
+		<Using Include="System.Diagnostics" />
+		<Using Include="System.ComponentModel.DataAnnotations" />
+		<Using Include="Microsoft.Extensions.Logging" />
+	</ItemGroup>
+
+</Project>
