@@ -1,0 +1,10 @@
+Coice = {Choice}
+EnableA = {EnableA}
+EnableB = {EnableB}
+
+@*#if (EnableA)
+AAAA
+#endif*@
+@*#if (EnableB)
+BBBBB
+#endif*@

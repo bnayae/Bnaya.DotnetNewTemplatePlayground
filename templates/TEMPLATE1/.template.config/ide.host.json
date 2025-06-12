@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/ide.host",
+  "order": 200,
+  "icon": "ide/icon.ico",
+  "supportsDocker": true,
+  "symbolInfo": [
+    {
+      "id": "LangVersion",
+      "isVisible": true,
+      "persistenceScope": "templateGroup"
+    },
+    {
+      "id": "ContentKind",
+      "isVisible": true,
+      "persistenceScope": "templateGroup"
+    },
+    {
+      "id": "A",
+      "persistenceScope": "templateGroup"
+    },
+    {
+      "id": "B",
+      "persistenceScope": "templateGroup"
+    },
+    {
+      "id": "ContentOfA",
+      "persistenceScope": "templateGroup"
+    },
+    {
+      "id": "ContentOfB",
+      "persistenceScope": "templateGroup"
+    },
+    {
+      "id": "EnableA",
+      "isVisible": true,
+      "name": {
+        "text": "The A",
+        "overrideDefaultText": true
+      }
+    },
+    {
+      "id": "EnableB",
+      "isVisible": true,
+      "name": {
+        "text": "The A",
+        "overrideDefaultText": true
+      }
+    }
+  ]
+}

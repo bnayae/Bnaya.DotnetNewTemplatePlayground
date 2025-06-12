@@ -45,6 +45,90 @@
     }
   ],
   "symbols": {
+    "ContentKind": {
+      "type": "parameter",
+      "description": "Content options.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "A",
+          "description": "Enable content of A"
+        },
+        {
+          "choice": "B",
+          "description": "Enable content of B"
+        },
+        {
+          "choice": "A&B",
+          "description": "Enable content of A&B"
+        }
+      ],
+      "defaultValue": "A",
+      "replaces": "{Choice}"
+    },
+    "A": {
+      "type": "parameter",
+      "datatype": "bool",
+      "isEnabled": "B",
+      "defaulisEnabledtValue": false
+    },
+    "B": {
+      "type": "parameter",
+      "datatype": "bool",
+      "isEnabled": "A == false", 
+      "defaultValue": true
+    },
+    "EnableA": {
+      "type": "computed",
+      "datatype": "bool",
+      "value": "(ContentKind == 'A' || ContentKind == 'A&B')",
+      "replaces": "{EnableA}"
+    },
+    "EnableB": {
+      "type": "computed",
+      "value": "(ContentKind == 'B' || ContentKind == 'A&B')",
+      "replaces": "{EnableB}"
+    },
+    "ContentOfA": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "I'm A",
+      "description": "Set the content of A.",
+      "isEnabled": "EnableA"
+    },
+    "ContentOfB": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "I'm B",
+      "replaces": "{ContentOfB}",
+      "description": "Set the content of B.",
+      "isEnabled": "EnableB"
+    },
+    "ContentOfARegex": {
+      "type": "generated",
+      "generator": "regex",
+      "dataType": "string",
+      "replaces": "{ContentOfA}",
+      "parameters": {
+        "source": "ContentOfA",
+        "steps": [
+          {
+            "regex": "!!",
+            "replacement": "#### ${ContentOfB} ####"
+          },
+          {
+            "regex": "test$",
+            "replacement": "Not Found"
+          }
+        ]
+      }
+    },
+    "FinalContentForReplacement": {
+      "type": "computed",
+      "value": "(ContentKind == \"A\" ? ContentOfA : (ContentKind == \"B\" ? ContentOfB : (ContentOfA + \" \" + ContentOfB)))",
+      "replaces": "{ContentOfC}"
+    },
+
     "LangVersion": {
       "type": "parameter",
       "description": "The C# Language version.",
@@ -52,7 +136,8 @@
       "choices": [
         {
           "choice": "13.0",
-          "description": "Compatible with net9"
+          "description": "Compatible with net9",
+          "isEnabled": "Framework == 'net9.0'"
         },
         {
           "choice": "12.0",
